@@ -1,5 +1,12 @@
 # Envorinments
 venv/
+.env
 
 # VS Code settings
 .vscode/
+
+# Database
+db.json
+
+# Cache
+__pycache__/

@@ -1,0 +1,48 @@
+@import url("https://fonts.googleapis.com/css?family=K2D");
+
+body {
+  text-align: center;
+  font-family: "K2D", sans-serif;
+  padding: 1rem;
+}
+
+table {
+  margin: 0px auto;
+}
+
+th,
+td {
+  padding: 0px 20px;
+}
+
+.small-btn {
+  border-radius: 20%;
+  padding: 0px 2px;
+  /* margin: 0px 20px; */
+}
+
+a {
+  text-decoration: none;
+  font-weight: bolder;
+  color: red;
+}
+
+a:visited {
+  color: red;
+}
+
+a:hover {
+  color: orange;
+}
+
+.short-url {
+  color: darkslateblue;
+}
+
+.short-url:visited {
+  color: darkslateblue;
+}
+
+.short-url:hover {
+  color: blueviolet;
+}

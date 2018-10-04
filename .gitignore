@@ -1,0 +1,5 @@
+# Envorinments
+venv/
+
+# VS Code settings
+.vscode/

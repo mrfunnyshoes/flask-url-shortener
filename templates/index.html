@@ -5,6 +5,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+  <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='img/favicon.ico') }}" />
+
   <title>URL Shortener</title>
 </head>
 
@@ -12,9 +15,52 @@
 
   <h1>URL Shortener Microservice (freeCodeCamp project)</h1>
 
-  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia quibusdam fugiat velit blanditiis id eveniet
-    aliquam, deserunt ex, iure perferendis ratione voluptatem incidunt saepe. Veritatis sint maxime pariatur porro
-    architecto!</p>
+  <p>A simple microservice made with Flask that shortens URLs.</p>
+  <p>It uses <a href="https://tinydb.readthedocs.io/" target="_blank">TinyDB</a> as the database.</p>
+
+  {% if urls %}
+  <table>
+    <thead>
+      <tr>
+        <th colspan="2">Short URLs</th>
+        <th>Created</th>
+        <th>Last visited</th>
+        <th>Visits</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for url in urls %}
+      <tr>
+        <td>
+          <a href="{{ url[1] }}" class="short-url" id="{{ 'short-{}'.format(url[0]) }}" target="_blank">
+            {{ url[1] }}
+          </a>
+        </td>
+        <td>
+          <!--<button class="btn" data-clipboard-text="{{ url[1] }}">-->
+          <button class="btn small-btn" data-clipboard-target="{{ '#short-{}'.format(url[0]) }}">
+            <img src="{{ url_for('static', filename='img/clippy.svg') }}" alt="Copy to clipboard" width="15">
+          </button>
+        </td>
+        <td>{{ url[2] }}</td>
+        <td>
+          {% if url[3] %}
+          {{ url[3] }}
+          {% else %}
+          -
+          {% endif %}
+        </td>
+        <td>{{ url[4] }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% endif %}
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+  <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+  <!--<script>
+    new ClipboardJS(".btn");
+  </script>-->
 </body>
 
 </html>

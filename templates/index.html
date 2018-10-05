@@ -32,9 +32,7 @@
       {% for url in urls %}
       <tr>
         <td>
-          <a href="{{ url[1] }}" class="short-url" id="{{ 'short-{}'.format(url[0]) }}" target="_blank">
-            {{ url[1] }}
-          </a>
+          <a href="{{ url[1] }}" class="short-url" id="{{ 'short-{}'.format(url[0]) }}" target="_blank">{{ url[1] }}</a>
         </td>
         <td>
           <!--<button class="btn" data-clipboard-text="{{ url[1] }}">-->
